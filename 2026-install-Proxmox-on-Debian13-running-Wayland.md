@@ -220,3 +220,36 @@ apt remove os-prober
 https://pve.proxmox.com/wiki/Install_Proxmox_VE_on_Debian_13_Trixie
 
 https://pve.proxmox.com/wiki/Developer_Workstations_with_Proxmox_VE_and_X11
+
+
+# Steps for getting laptop Proxmox lab running at remote locations.
+
+1) You want to use synergy to share mouse and keyboard. 
+- Synergy client on the secondary laptop should connect back to the main laptop
+- this is done by removing the existing computer, adding a new computer.
+
+2) You may need to adjust firewall policies for pveproxy port 8006, example IP 
+```
+pvesh create /nodes/direcore26/firewall/rules --type in --action ACCEPT --proto tcp --source 192.168.1.20 --dport 8006 --comment "main laptop at community center" --enable 1
+pvesh create /nodes/direcore26/firewall/rules --type in --action ACCEPT --proto tcp --source 192.168.1.20 --dport 22 --comment "main laptop at community center" --enable 1
+```
+
+```
+pvesh get /nodes/$(hostname)/firewall/rules 
+systemctl status pve-firewall.service
+```
+
+
+Multiple ports can be done with commas and a range cna be given with colon. 
+```
+pvesh create /nodes/direcore26/firewall/rules --type in --action ACCEPT --proto tcp --dport 444,555,7800:7810,8280 --comment "main laptop at community center" --enable 1
+```
+
+
+Create a route on your machine
+```
+sudo route add 10.10.10.0/24 via 10.0.0.125
+```
+
+
+
