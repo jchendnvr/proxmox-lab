@@ -279,6 +279,3 @@ Save the modified structural data layout directly to the partition table blocks:
 Script available here:
 https://github.com/jchendnvr/proxmox-lab/blob/main/nested-clone.sh
 
-# Unset the history file variable so the current logout writes nothing
-unset HISTFILE && exit
-```
