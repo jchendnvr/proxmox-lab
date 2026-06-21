@@ -3,7 +3,14 @@
 # 1) The patch is created, and permissions set for execution. 
 # 2) The patch is called to correct
 # 3) A call to the patch is added to apt.conf.d so that if future updates erase over the patch, it is repatched. 
- 
+# This patch looks for a specific line 'checked_command: function (orig_cmd) {'
+# It then adds a new line with a comment, and another new line with a return statement. 
+# This return statement ensures the subscription nag call doesn't run. 
+# The file is checked on future runs for the comment, and if the comment is found, it does not need patching
+# As of 20260620 and pve-manager/9.2.2/b9984c6d90a4bd80 (running kernel: 7.0.2-6-pve) this line is on 601
+# As of 20260621 and pve-manager/9.2.3/d0fde103346cf89a (running kernel: 7.0.2-6-pve) this line is on 611
+
+
 cat >/usr/local/bin/pve-sub-nag-patch.sh <<'EOF'
 #!/bin/bash
 # PVE-SUB-NAG-PATCH 
@@ -36,4 +43,3 @@ DPkg::Post-Invoke { "/usr/local/bin/pve-sub-nag-patch.sh"; };
 EOF
 
 chmod 644 /etc/apt/apt.conf.d/pve-sub-nag-patch
-
