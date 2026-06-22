@@ -9,13 +9,12 @@
 
 echo "Enabled: false" >> /etc/apt/sources.list.d/pve-enterprise.sources 
    
-cat > /etc/apt/sources.list.d/proxmox.sources < 'EOF'   
+cat >/etc/apt/sources.list.d/proxmox.sources < 'EOF'   
 Types: deb
 URIs: http://download.proxmox.com/debian/pve
 Suites: trixie
 Components: pve-no-subscription
 Signed-By: /usr/share/keyrings/proxmox-archive-keyring.gpg
-
 
 EOF
 
@@ -33,7 +32,8 @@ URIs: http://download.proxmox.com/debian/ceph-tentacle
 Suites: trixie
 Components: no-subscription
 Signed-By: /usr/share/keyrings/proxmox-archive-keyring.gpg
-> /etc/apt/sources.list.d/ceph.source
+ > /etc/apt/sources.list.d/ceph.source
 
 EOF
 
+echo "Updated repos, disabled Enterprise Repos, enabled no subscription pve and ceph."
