@@ -9,7 +9,7 @@
 
 echo "Enabled: false" >> /etc/apt/sources.list.d/pve-enterprise.sources 
    
-cat >/etc/apt/sources.list.d/proxmox.sources < 'EOF'   
+cat >/etc/apt/sources.list.d/proxmox.sources << EOF   
 Types: deb
 URIs: http://download.proxmox.com/debian/pve
 Suites: trixie
@@ -19,7 +19,7 @@ Signed-By: /usr/share/keyrings/proxmox-archive-keyring.gpg
 EOF
 
 
-cat > /etc/apt/sources.list.d/ceph.source < 'EOF' 
+cat > /etc/apt/sources.list.d/ceph.source << EOF 
 Types: deb
 URIs: https://enterprise.proxmox.com/debian/ceph-squid
 Suites: trixie
