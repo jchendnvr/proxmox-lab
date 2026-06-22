@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # no-subscription-repos.sh
 # 1) Disable enterprise repo
 # 2) Create no subscription repo, proxmox-sources
