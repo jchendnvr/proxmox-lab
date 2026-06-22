@@ -37,7 +37,7 @@ rm -rf /usr/local/lib/systemd/network/50-pmx-nic*.link
 yes | pve-network-interface-pinning generate
 
 # update the vmbr0 IP address 
-pvesh set /nodes/$(hostname -s)/network/vmbr0 --type bridge --address $(IP_ADDR) --netmask 255.255.255.0
+pvesh set /nodes/$(hostname -s)/network/vmbr0 --type bridge --address $IP_ADDR --netmask 255.255.255.0
 pvesh set /nodes/$(hostname -s)/network
 
 
