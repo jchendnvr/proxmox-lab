@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # nested-clone.sh
 # For use on nested Proxmox VMs you clone. ( The Clone Source) 
 # Then set the IP and Hostname below and run it on the newly cloned machine. 
@@ -67,7 +66,8 @@ pvecm updatecerts -f
 systemctl restart pveproxy pvedaemon
 
 
-# Should do following next
+echo "
+Should do following next
 # 1) update the repos
 #    update-repos.sh
 # 2) Patch the no subscription issue
@@ -76,6 +76,7 @@ systemctl restart pveproxy pvedaemon
 #      systemctl disable -q --now pve-ha-lrm
 #      systemctl disable -q --now pve-ha-crm
 #      systemctl disable -q --now corosync
+"
 
 # clearning logs
 systemctl stop systemd-journald.service
