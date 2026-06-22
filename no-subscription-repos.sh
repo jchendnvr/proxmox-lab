@@ -19,7 +19,7 @@ Signed-By: /usr/share/keyrings/proxmox-archive-keyring.gpg
 EOF
 
 
-cat > /etc/apt/sources.list.d/ceph.source << EOF 
+cat >/etc/apt/sources.list.d/ceph.sources << EOF 
 Types: deb
 URIs: https://enterprise.proxmox.com/debian/ceph-squid
 Suites: trixie
@@ -32,7 +32,6 @@ URIs: http://download.proxmox.com/debian/ceph-tentacle
 Suites: trixie
 Components: no-subscription
 Signed-By: /usr/share/keyrings/proxmox-archive-keyring.gpg
- > /etc/apt/sources.list.d/ceph.source
 
 EOF
 
