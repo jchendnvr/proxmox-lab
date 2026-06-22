@@ -66,6 +66,16 @@ pvecm updatecerts -f
 systemctl restart pveproxy pvedaemon
 
 
+# Should do following next
+# 1) update the repos
+#    update-repos.sh
+# 2) Patch the no subscription issue
+#    pve-sub-nag-patch-creator.sh
+# 3) If single host, disable HA, 
+#      systemctl disable -q --now pve-ha-lrm
+#      systemctl disable -q --now pve-ha-crm
+#      systemctl disable -q --now corosync
+
 # clearning logs
 systemctl stop systemd-journald.service
 rm -rf /var/log/journal/*
