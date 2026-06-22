@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # pve-sub-nag-patch-creator.sh
 # 1) The patch is created, and permissions set for execution. 
 # 2) The patch is called to correct
@@ -43,3 +44,5 @@ DPkg::Post-Invoke { "/usr/local/bin/pve-sub-nag-patch.sh"; };
 EOF
 
 chmod 644 /etc/apt/apt.conf.d/pve-sub-nag-patch
+
+echo "Patched the subscription nag screens"
